@@ -1,3 +1,5 @@
+#VENV folder
+LMTvenv/*
 
 # Django #
 *.log
