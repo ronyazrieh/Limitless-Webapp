@@ -7,6 +7,8 @@ def home(request):
 def sample_workout(request):
     return render(request, 'sample_workout.html')
 
-def workout(request, muscle):
-    context = {'muscle': muscle}
-    return render(request, 'workout.html', context)
+def chest_workout(request):
+    return render(request, 'workouts/chest_workout.html')
+
+def back_workout(request):
+    return render(request, 'workouts/back_workout.html')
