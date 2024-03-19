@@ -12,3 +12,21 @@ def chest_workout(request):
 
 def back_workout(request):
     return render(request, 'workouts/back_workout.html')
+
+def bicep_workout(request):
+    return render(request, 'workouts/bicep_workout.html')
+
+def tricep_workout(request):
+    return render(request, 'workouts/tricep_workout.html')
+
+def delts_workout(request):
+    return render(request, 'workouts/delts_workout.html')
+
+def quads_workout(request):
+    return render(request, 'workouts/quads_workout.html')
+
+def hamstring_workout(request):
+    return render(request, 'workouts/hamstring_workout.html')
+
+def glutes_workout(request):
+    return render(request, 'workouts/glutes_workout.html')
