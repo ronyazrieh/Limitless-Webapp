@@ -35,7 +35,18 @@
         </div>
     </nav>
     <h1>Chest Workout</h1>
-    <!-- Add specific content for the chest workout page -->
+        <!-- Add the form for adding workout records -->
+    <div class="container mt-4">
+        <form method="post" action="{% url 'chest_workout' muscle='chest' %}">
+           {% csrf_token %}
+        {{ form.as_p }}
+        <div class="row mt-4">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Add Record</button>
+            </div>
+        </div>
+    </form>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

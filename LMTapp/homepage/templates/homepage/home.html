@@ -58,20 +58,19 @@
                                 Select Muscle
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="muscleDropdown">
-                                <li><a class="dropdown-item" href="{% url 'chest_workout' %}">Chest</a></li>
-                                <li><a class="dropdown-item" href="{% url 'back_workout' %}">Back</a></li>
-                                <li><a class="dropdown-item" href="{% url 'bicep_workout' %}">Bicep</a></li>
-                                <li><a class="dropdown-item" href="{% url 'tricep_workout' %}">Tricep</a></li>
-                                <li><a class="dropdown-item" href="{% url 'delts_workout' %}">Delts</a></li>
-                                <li><a class="dropdown-item" href="{% url 'quads_workout' %}">Quads</a></li>
-                                <li><a class="dropdown-item" href="{% url 'hamstring_workout' %}">Hamstring</a></li>
-                                <li><a class="dropdown-item" href="{% url 'glutes_workout' %}">Glutes</a></li>
-
+                                <li><a class="dropdown-item" href="{% url 'chest_workout' muscle='chest' %}">Chest</a></li>
+                                <li><a class="dropdown-item" href="{% url 'back_workout' muscle='back' %}">Back</a></li>
+                                <li><a class="dropdown-item" href="{% url 'bicep_workout' muscle='bicep' %}">Bicep</a></li>
+                                <li><a class="dropdown-item" href="{% url 'tricep_workout' muscle='tricep' %}">Tricep</a></li>
+                                <li><a class="dropdown-item" href="{% url 'delts_workout' muscle='delts' %}">Delts</a></li>
+                                <li><a class="dropdown-item" href="{% url 'quads_workout' muscle='quads' %}">Quads</a></li>
+                                <li><a class="dropdown-item" href="{% url 'hamstring_workout' muscle='hamstring' %}">Hamstring</a></li>
+                                <li><a class="dropdown-item" href="{% url 'glutes_workout' muscle='glutes' %}">Glutes</a></li>
                                 <!--ADD MORE LATER-->
                             </ul>
                         </div>
                         <p class="card-text">Choose a muscle group to focus on for your workout.</p>
-                        
+
                     </div>
                 </div>
             </div>
