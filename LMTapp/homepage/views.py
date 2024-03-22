@@ -36,7 +36,7 @@ def bicep_workout(request, muscle):
 
 @login_required
 def tricep_workout(request, muscle):
-    return handle_workout_request(request, 'triceps')
+    return handle_workout_request(request, 'tricep')
 
 @login_required
 def delts_workout(request, muscle):
