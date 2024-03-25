@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dga2tgy.css">
+    <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"-->
     <title>Home Page</title>
     <style>
         .custom-card {
@@ -53,7 +55,7 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <h5 class="card-title">Select Muscle Group</h5>
-                        <div class="dropdown">
+                        <!--div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="muscleDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 Select Muscle
                             </button>
@@ -66,9 +68,22 @@
                                 <li><a class="dropdown-item" href="{% url 'quads_workout' muscle='quads' %}">Quads</a></li>
                                 <li><a class="dropdown-item" href="{% url 'hamstring_workout' muscle='hamstring' %}">Hamstring</a></li>
                                 <li><a class="dropdown-item" href="{% url 'glutes_workout' muscle='glutes' %}">Glutes</a></li>
-                                <!--ADD MORE LATER-->
+                                <ADD MORE LATER>
                             </ul>
-                        </div>
+                        </div-->
+                        <div class="dropdown">
+                            <button class="dropbtn">Dropdown</button>
+                            <div class="dropdown-content">
+                              <a href="{% url 'chest_workout' muscle='chest' %}">Chest</a>
+                              <a href="{% url 'back_workout' muscle='back' %}">Back</a>
+                              <a href="{% url 'bicep_workout' muscle='bicep' %}">Bicep</a>
+                              <a href="{% url 'tricep_workout' muscle='tricep' %}">Tricep</a>
+                              <a href="{% url 'delts_workout' muscle='delts' %}">Delts</a>
+                              <a href="{% url 'quads_workout' muscle='quads' %}">Quads</a>
+                              <a href="{% url 'hamstring_workout' muscle='hamstring' %}">Hamstring</a>
+                              <a href="{% url 'glutes_workout' muscle='glutes' %}">Glutes</a>
+                            </div>
+                          </div>
                         <p class="card-text">Choose a muscle group to focus on for your workout.</p>
 
                     </div>
