@@ -1,10 +1,31 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import WorkoutRecordForm
+from .forms import GoalForm
+from .models import Goal
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    return render(request, 'homepage/home.html')
+    goals = Goal.objects.filter(user=request.user)
+    if request.method == 'POST':
+        form = GoalForm(request.POST)
+        if form.is_valid():
+            goal = form.save(commit=False)
+            goal.user = request.user
+            goal.save()
+            return redirect('home')
+    else:
+        form = GoalForm()
+    return render(request, 'homepage/home.html', {'form': form, 'goals': goals})
+
+@login_required
+def mark_goal_completed(request, goal_id):
+    goal = get_object_or_404(Goal, id=goal_id)
+    goal.completed = True
+    goal.save()
+    return redirect('home')
+
+
 
 def success_page(request):
     return render(request, 'homepage/success.html')

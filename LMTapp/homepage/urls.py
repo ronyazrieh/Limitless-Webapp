@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, chest_workout, back_workout, bicep_workout, tricep_workout, delts_workout, quads_workout, hamstring_workout, glutes_workout, success_page
+from .views import home, chest_workout, back_workout, bicep_workout, tricep_workout, delts_workout, quads_workout, hamstring_workout, glutes_workout, success_page, mark_goal_completed
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -15,4 +15,5 @@ urlpatterns = [
     path('workout/glutes/<str:muscle>/', glutes_workout, name='glutes_workout'),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('success/', success_page, name='success_page'),
+    path('mark-goal-completed/<int:goal_id>/', mark_goal_completed, name='mark_goal_completed'),
 ]

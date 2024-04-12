@@ -8,3 +8,14 @@ class WorkoutRecord(models.Model):
     reps = models.IntegerField()
     sets = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+class Goal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField()
+    target_sets = models.IntegerField(default=0)
+    completed_sets = models.IntegerField(default=0)
+    target_workouts = models.IntegerField(default=0)
+    completed_workouts = models.IntegerField(default=0)
+    completed = models.BooleanField(default=False)  # New field to track completion
+    def __str__(self):
+        return self.description
