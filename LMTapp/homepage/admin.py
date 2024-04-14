@@ -9,7 +9,7 @@ class WorkoutRecordAdmin(admin.ModelAdmin):
 admin.site.register(WorkoutRecord, WorkoutRecordAdmin)
 
 class GoalAdmin(admin.ModelAdmin):
-    list_display = ['user', 'description', 'completed']
-    list_filter = ['user', 'completed']
+    list_display = ['user', 'description', 'completed', 'created_at']
+    list_filter = ['user', 'completed', 'created_at']
 
 admin.site.register(Goal, GoalAdmin)
