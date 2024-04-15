@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'profile/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar/navbar.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Limitless</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="row">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'workout_page' %}">Workout</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+                        <h4 class="site-info">Profile Information</h4>
+                        <div>
+                            <img class="profile-img" src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+                        </div>
+                        <h1 class="profile-name">{{ user.username|upper }}</h1>
+                        <p class="profile-info">Email: {{ user.email }}</p>
+
+            <!-- Workout Stats -->
+                        <h5>STATS</h5>
+                        <div class="row stats-row">
+                            <div class="col-2">
+                                <h2 class="stats">{{ total_workouts }}</h2>
+                                <p>Total Workouts</p>
+                            </div>
+                            <div class="col-2">
+                                <h2 class="stats">{{ total_sets }}</h2>
+                                <p>Total Sets</p>
+                            </div>
+                            <div class="col-2">
+                                <h2 class="stats">{{ total_reps }}</h2>
+                                <p>Total Reps</p>
+                            </div>
+
+                        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

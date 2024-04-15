@@ -1,15 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{% static 'homepage/home.css' %}">
-    <link rel="stylesheet" href="{% static 'navbar/navbar.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
-    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'homepage/home.css' %}">
+    <link rel="stylesheet" href="{% static 'workouts/workout.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar/navbar.css' %}">
+    <title>tricep Workout</title>
 </head>
 
 <body>
+
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Limitless</a>
@@ -26,11 +31,11 @@
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'workout_page'%}">Workout</a>
+                            <a class="nav-link" href="{% url 'workout_page' %}">Workout</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'profile_page'%}">Profile</a>
+                            <a class="nav-link" href="#">Profile</a>
                         </li>
 
                     </ul>
@@ -42,62 +47,6 @@
     <div class="container mt-4">
 
         <div class="row" style="margin-top: 10vh;">
-
-
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Goals</h5>
-                        <!-- Add Goal Modal -->
-
-                        <div class="modal fade" id="addGoalModal" tabindex="-1" aria-labelledby="addGoalModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="addGoalModalLabel">Add Goal</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form id="addGoalForm" method="post">
-                                            {% csrf_token %}
-                                            {{ form.as_p }}
-                                            <button type="submit" class="btn btn-primary">Add Goal</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <ul>
-                            {% for goal in goals %}
-                            <li>
-                                {{ goal.description }}
-                                {% if not goal.completed %}
-                                <form method="post" action="{% url 'mark_goal_completed' goal.id %}">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-sm btn-success">Mark Completed</button>
-                                </form>
-                                {% else %}
-                                <span class="text-success">Completed</span>
-                                {% endif %}
-                            </li>
-                            {% endfor %}
-                        </ul>
-
-                        <div class="row">
-                            <div class="col text-center">
-                                <!-- Add Goal Button -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#addGoalModal">Add Goal</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
 
             <div class="col-lg-6">
                 <!--MAIN STUFF,,, SELECT MUSCLE-->
@@ -111,7 +60,7 @@
                             </div>
                         </div>
                         <div class="row mt-5 muscle-buttons">
-                            <div class="col-md-3 mb-">
+                            <div class="col-md-3 mb-3">
                                 <a href="{% url 'chest_workout' muscle='chest' %}"
                                     class="btn btn-primary btn-lg btn-block" onmouseover="changeImage('chest')"
                                     onmouseleave="changeImage('normal')">Chest</a>
@@ -149,25 +98,54 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Achievements</h5>
-                        <p class="card-text">Progress and Weights</p>
+            
+            <div class="col-6">
+                <div class="row p-0">
+                    <div class="card shadow-2-strong p-0">
+                      <div class="card-body p-0">
+                        <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 35vh">
+                          <table class="table table-dark mb-0" style="background-color: #1e1e24;">
+                            <thead style="background-color: #1e1e24;">
+                              <tr class="text-uppercase text-success">
+                                  <th scope="col">Date</th>
+                                <th scope="col">Muscle</th>
+                                <th scope="col">Sets</th>
+                                <th scope="col">Repetitions</th>
+                                <th scope="col">Weight</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for workout in recent_workouts %}
+                            <tr onmouseover="changeImage('{{ workout.workout_type }}')" onmouseleave="changeImage('normal')">
+                                <td>{{ workout.created_at|date:"F d" }}</td>
+                                <td>{{ workout.workout_type|capfirst }}</td>
+                                <td>{{ workout.reps }}</td>
+                                <td>{{ workout.sets }}</td>
+                                <td>N/A</td>
+    
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                          </table>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <div class="row">
+                      <div class="card mt-2" style="height: 25vh;">
+  
+                      </div>
+                  </div>
                 </div>
-            </div>
+
+
 
 
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'homepage/home.js' %}"></script>
-
 </body>
 
 </html>

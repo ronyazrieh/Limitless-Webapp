@@ -1,0 +1,31 @@
+body {
+    background-image: url(../background.svg);
+}
+
+.container{
+    margin-top: 5vh;
+    text-align: center;
+
+}
+
+.site-info {
+    margin-bottom: 5vh;
+}
+.profile-img{
+    border-radius: 50%;
+    width: 450px;
+
+}
+
+.profile-name{
+    margin-top: 5vh;
+}
+
+.profile-info{
+    margin-bottom: 5vh;
+}
+
+.stats-row{
+    align-items: center;
+    justify-content: center;
+}
