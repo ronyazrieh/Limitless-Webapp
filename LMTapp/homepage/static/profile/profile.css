@@ -10,6 +10,10 @@ body {
 
 .site-info {
     margin-bottom: 5vh;
+    font-family: "indivisible", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
 }
 .profile-img{
     border-radius: 50%;
@@ -19,13 +23,34 @@ body {
 
 .profile-name{
     margin-top: 5vh;
+    font-family: "indivisible", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: #e68e87;
 }
 
 .profile-info{
     margin-bottom: 5vh;
+    font-family: "indivisible", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
 }
-
+.stats{
+    font-family: "indivisible", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: #e68e87;
+}
 .stats-row{
     align-items: center;
     justify-content: center;
+    font-family: "indivisible", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: #e68e87;
+}
+
+h5{
+    color: white;
 }

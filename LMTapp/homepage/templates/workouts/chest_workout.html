@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'workouts/workout.css' %}">
     <link rel="stylesheet" href="{% static 'navbar/navbar.css' %}">
+    <link rel="stylesheet" href="https://use.typekit.net/pnx2otr.css">
+    <link rel="stylesheet" href="https://use.typekit.net/pnx2otr.css">
     <title>Chest Workout</title>
 </head>
 
 <body>
 
 
+ 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Limitless</a>
@@ -30,11 +33,11 @@
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Workout</a>
+                            <a class="nav-link" href="{% url 'workout_page'%}">Workout</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="{% url 'profile_page'%}">Profile</a>
                         </li>
 
                     </ul>
@@ -48,11 +51,13 @@
     <div class="container w-100 mt-4">
         <div class="row" style="margin-top: 8vh;">
             <div class="col-md-4" >
-                <div class="card photo-card">
+                <div class="card custom-card photo-card p-3">
                     <div class="card-body">
-                        <div class="col-auto">
-                            <img id="muscle-img" src="{% static 'workouts/CHEST.png' %}" alt="Chest Image"
-                                width="100%">
+                        <div class="card img-card">
+                            <div class="col-auto">
+                                <img id="muscle-img" src="{% static 'workouts/CHEST.png' %}" alt="Chest Image"
+                                    width="100%">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,25 +67,25 @@
             <div class="col-md-4 ml-4" style="margin-left: 3rem; margin-right: 3rem;">
                 <div class="row mt-4 mb-5">
                     <p>Start a workout and log it here</p>
-                    <h1>Chest</h1>
+                    <h1 class="muscle-title">Chest</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget nulla mauris. In eget risus mauris. Vestibulum placerat lectus in odio blandit lobortis  </p>
                 </div>
                 <div class="row">
-                    <h3>Workout</h3>
+                    <h3 class="muscle-title">Workout</h3>
                     <p>Lorem ipsum dolor sit amet</p>
                     <hr style="width:50%;text-align:left;margin-left:2">
                     <form method="post" action="{% url 'chest_workout' muscle='chest' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <div class="row mt-4">
+                        <div class="row mt-0">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary">Add Record</button>
+                                <button type="submit" id="bottone1">Add Record</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="row" style="margin-top: 9vh;">
-                    <h3>Suggested Excercises</h3>
+                <div class="row" style="margin-top: 4vh;">
+                    <h3 class="muscle-title">Suggested Excercises</h3>
                     <ul class="list-unstyled">
                         <li>Lorem ipsum dolor sit amet</li>
                         <li>Lorem ipsum dolor sit amet</li>
@@ -89,27 +94,45 @@
                     <a href="#">Learn More</a>
                 </div>
             </div>
+
+            
             <div class="col-md-3">
                 <div class="row mb-5 mt-2">
                     <div class="card side-card" style="padding-left: 1.5rem;">
-                        <div class="card-title mt-3 ml-3"><h4>Previous Workout</h4></div>
+                        <div class="card-title mt-2 d-flex align-items-center justify-content-between">
+                            <h4 class="card-title goal-title mt-3 ml-3">Previous Workout</h4>
+                            <a href="{% url 'workout_page' %}" class="stretched-link">
+                                <img class="go-arrow" src="{% static 'homepage/arrow.svg' %}">
+                            </a> 
+                        </div>
                         <div class="card-body">
                             {% if recent_workout %}
-                                <p>Reps: {{ recent_workout.reps }}</p>
-                                <p>Sets: {{ recent_workout.sets }}</p>
+                                <div class="d-flex align-items-center mb-3">
+                                    <h5 class="me-3">REPS:</h5>
+                                    <h4>{{ recent_workout.reps }}</h4>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <h5 class="me-3">SETS:</h5>
+                                    <h4>{{ recent_workout.sets }}</h4>
+                                </div>
                             {% else %}
                                 <p>No previous workout recorded.</p>
                             {% endif %}
                         </div>
                     </div>
                 </div>
+                
+                
                 <div class="row mb-5">
                     <div class="card side-card" style="padding-left: 1.5rem;">
-                        <div class="card-title mt-3 ml-3"><h4>Workout Goals</h4></div>
-                        <div class="card-body">
-                            <ul>
+                        <div class="card-title mt-2 d-flex align-items-center justify-content-between">
+                            <h4 class="card-title goal-title mt-3 ml-3">Workout Goals</h4>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="p-0">
                                 {% for goal in incomplete_goals %}
-                                <li>{{ goal.description }}</li>
+                                <img class="list-arrow" src="{% static 'homepage/arrow.svg' %}">
+                                <span>{{ goal.description }}</span>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -118,9 +141,15 @@
                          
                 <div class="row mb-5">
                     <div class="card side-card" style="padding-left: 1.5rem;">
-                        <div class="card-title mt-3 ml-3"><h4>Change Muscle</h4></div>
-                        <div class="card-body">
-                            <a href="{% url 'home' %}" class="stretched-link card-link">Go somewhere</a>
+                        <div class="card-title mt-2 d-flex align-items-center justify-content-between">
+                            <h4 class="card-title goal-title mt-3 ml-3">Change Muscle</h4>
+                            <a href="{% url 'workout_page' %}" class="stretched-link">
+
+                                <img class="go-arrow" src="{% static 'homepage/arrow.svg' %}">
+                            </a> 
+                        </div>
+                        <div class="card-body mt-5  ">
+                            <a href="{% url 'home' %}" class="stretched-link "><p>Log another workout for another muscle</p></a>
                         </div>
                     </div>
                 </div>

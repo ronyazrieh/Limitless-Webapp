@@ -5,7 +5,177 @@ body {
 .custom-card {
     height: 70vh; /* Set your desired height */
     max-height: 900px;
+    background-color: #1e1e24!important;
+    border-radius:20px!important;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+
 }
+
+.img-card{
+    border-radius:20px!important;
+}
+
+/* #region GOAL CARD CSSS */
+
+.success{
+    color: #fb9f89!important;
+    font-family: acumin-pro, sans-serif;
+    font-style: normal;
+    font-weight: 50;
+}
+.goal-title{
+    text-align: center;
+    margin-top: 2vh;
+    font-family: "indivisible", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color:#e68e87 ;
+    font-size: 36px;
+}
+
+.goal-list{
+    list-style: none;
+    padding: 0;
+    color: white;
+}
+
+.goal-element{
+    margin-top: 3vh;
+}
+
+.goal-description {
+    display: flex;
+    align-items: center;
+}
+
+.goal-description span{
+    font-family: acumin-pro, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+}
+.mark-completed-container {
+    margin-left: auto;
+}
+
+.progress-bar{
+  background: #84586f!important;
+}
+
+.progress-description{
+  font-family: acumin-pro, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  color: white;
+  margin-top: 2vh;
+}
+
+/* #region Checkmark Styles */
+
+.check {
+  /* button */
+  --button-bg: #353434;
+  --button-hover-bg: #464646;
+  --button-text-color: #CCCCCC;
+  --button-hover-text-color: #8bb9fe;
+  --button-border-radius: 10px;
+  --button-diameter: 26px;
+  --button-outline-width: 1px;
+  --button-outline-color: rgb(141, 141, 141);
+
+}
+
+.check {
+  box-sizing: border-box;
+  width: var(--button-diameter);
+  height: var(--button-diameter);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+
+.check svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkmark {
+  display: none;
+}
+
+.checkmark path {
+    fill: #fb9f89;
+  }
+.check:hover .checkmark {
+    display: block;
+  }
+  
+
+/* actions */
+
+.check:hover .tooltip,
+.check:focus:not(:focus-visible) .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: calc((100% + var(--tooltip-offset)) * -1);
+}
+
+.check:focus:not(:focus-visible) .tooltip::before {
+  content: attr(data-text-end);
+}
+
+
+.check:focus:not(:focus-visible) .checkmark {
+  display: block;
+}
+
+.check:hover,
+.check:focus {
+  background-color: var(--button-hover-bg);
+}
+
+.check:active {
+  outline: var(--button-outline-width) solid var(--button-outline-color);
+}
+
+.check:hover svg {
+  color: var(--button-hover-text-color);
+}
+
+/* #endregion */
+
+#bottone1 {
+    margin-top: 4vh;
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 9px;
+    background: #fb9f89;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+   }
+   
+   #bottone1:hover {
+    background: #fb9f89;
+    transform: scale(1.02);
+   }
+   
+   #bottone1:active {
+    transform: scale(0.98);
+   }
+
+/* #endregion */
+
 
 .muscle-buttons .btn {
     width: 100%; /* Make buttons fill their container */
@@ -13,12 +183,17 @@ body {
     height: 50px;
     font-size: 18px;
     background-color: #1e1e24;
-    border: none;
+    border: 10px, solid #fb9f89 !important;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #fb9f89;
     transition: background-color 0.3s; /* Add transition for smooth color change */
 }
 
 .muscle-buttons .btn:hover {
     background-color: #fb9f89; /* Change background color on hover */
+    border: 10px, solid #fb9f89 !important;
+    border-color: #fb9f89;
 }
 
 /* Center the buttons horizontally */
@@ -26,6 +201,22 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 1vh;
+}
+
+/* #region Workout Page */
+
+.table-card{
+    height: 35vh;
+}
+
+.table-text{
+    color: white;
+}
+
+.achieve-card{
+  height: 32.5vh;
+  margin-top: 2.5vh;
 }
 
 table td,
@@ -34,11 +225,6 @@ table th {
   white-space: nowrap;
   overflow: hidden;
 }
-
-.card {
-  border-radius: .5rem;
-}
-
 .table-scroll {
   border-radius: .5rem;
 }
@@ -64,3 +250,5 @@ thead {
   top: 0;
   position: sticky;
 }
+
+/* #endregion */

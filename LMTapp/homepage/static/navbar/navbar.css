@@ -1,3 +1,17 @@
 .navbar {
-    background: #1e1e24;
+    background: transparent;
+  }
+  
+  .navbar-brand{
+    font-family: "indivisible", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .nav-item{
+    margin-left: 80px;
+    font-family: "indivisible", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #e68e87;
   }

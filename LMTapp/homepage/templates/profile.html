@@ -6,10 +6,13 @@
     <link rel="stylesheet" href="{% static 'profile/profile.css' %}">
     <link rel="stylesheet" href="{% static 'navbar/navbar.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/pnx2otr.css">
+    <link rel="stylesheet" href="https://use.typekit.net/pnx2otr.css">
     <title>Profile Page</title>
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Limitless</a>
@@ -20,20 +23,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="row">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+
+                        <li class="nav-item active">
                             <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'workout_page' %}">Workout</a>
-                        </li>
+
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="{% url 'workout_page'%}">Workout</a>
                         </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'profile_page'%}">Profile</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
+
 
     <div class="container">
 

@@ -6,7 +6,96 @@ body {
     height: 75vh; /* Set your desired height */
     justify-content: center;
 }
+.custom-card {
+    height: 70vh; /* Set your desired height */
+    max-height: 900px;
+    background-color: #1e1e24!important;
+    border-radius:20px!important;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
 
-.side-card{
-    height: 20vh;
 }
+
+.img-card{
+    border-radius:15px!important;
+    
+}
+
+.side-card {
+    height: 20vh;
+    background-color: #1e1e24!important;
+    border-radius: 20px!important;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+    transition: transform 0.3s ease; /* Add transition for smooth transform */
+}
+
+.side-card:hover {
+    transform: translateY(-4px); /* Move the card 5px up on hover */
+}
+.goal-title {
+    text-align: left;
+    margin-top: 2vh;
+    font-family: "indivisible", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #e68e87;
+    font-size: 26px;
+}
+
+.go-arrow {
+    width: 40px;
+    margin-left: auto; /* Push the arrow to the right */
+}
+
+.card-body{
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: white;
+    text-decoration: none;
+}
+
+p{
+    color: white;
+}
+
+.muscle-title{
+    font-family: "indivisible", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #e68e87;
+}
+
+li{
+    color: white;
+}
+
+#bottone1 {
+    align-self: auto;
+    margin-top: 4vh;
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 9px;
+    background: #fb9f89;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+   }
+   
+   #bottone1:hover {
+    background: #fb9f89;
+    transform: scale(1.02);
+   }
+   
+   #bottone1:active {
+    transform: scale(0.98);
+   }
