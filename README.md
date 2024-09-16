@@ -12,7 +12,7 @@ Using gameifcation elements, data trackers, and thought-out UI/UX elements.
 The app is created using Django as the backend framework, and Bootstrap to create simple UI elements.  
 
 ### Current Application Status
-![Curerent Application Status](image.png)  
+![Curerent Application Status](readmeimg.png)  
   
 The current application status:
 
