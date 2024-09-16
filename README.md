@@ -14,4 +14,4 @@ The app is created using Django as the backend framework, and Bootstrap to creat
 ### Current Application Status
 ![Curerent Application Status](readmeimg.png)  
 
-![Current Application Status](readmevid.gif)
+![Current Application Status](readmegif.gif)
